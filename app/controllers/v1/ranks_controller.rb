@@ -1,9 +1,9 @@
 class V1::RanksController < ApplicationController
   def index
-    rank = Rank.where(category_id: params[:category_id]).last
+    ranks = Rank.where(category_id: params[:category_id]).order(result_date: :desc).page(params[:page]).per(1)
 
-    if rank
-      render json: { date: rank.result_date, items: rank.items }, status: 200
+    if ranks.present?
+      render json: { date: ranks.first.result_date, items: ranks.first.items, next_page: ranks.next_page }, status: 200
     else
       render json: {}, status: 204
     end
