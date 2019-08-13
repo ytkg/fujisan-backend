@@ -1,6 +1,6 @@
 class Category < ActiveHash::Base
   include ActiveHash::Associations
-  has_many :ranking_items
+  has_many :ranks
 
   self.data = [
     { id: 1, name: 'すべて', url: 'https://zozo.jp/ranking/all-sales.html'},
