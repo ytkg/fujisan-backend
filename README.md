@@ -1,24 +1,18 @@
-# README
+ZOZOトップ10 (backend)
+========
+ZOZOTOWN Ranking
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Deployment on heroku
+```
+# One time only
+heroku create [applicatin name]
+heroku config:add TZ=Asia/Tokyo
 
-Things you may want to cover:
+git push heroku master
+heroku run rails db:migrate
+```
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Add ranking data
+```
+heroku run rails rank:fetch
+```
